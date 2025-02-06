@@ -1,6 +1,7 @@
 body{
-    background-color: aliceblue;
+    background-color:  hsl(0, 0%, 98%);
     font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
 }
 
 .navbar{
@@ -12,6 +13,7 @@ body{
     justify-content: space-between;
     height: auto;
     align-items: center;
+    font-weight: 700;
 
     
 
@@ -20,6 +22,7 @@ body{
     margin: 0;
     padding:0;
     font-size: 40px;
+    font-weight: 500;
 }
 .main{
     display: flex;
@@ -28,7 +31,7 @@ body{
     width: 100%;
 }
 .button2{
-    background: black;
+    background: hsl(0, 0%, 41%);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -38,6 +41,7 @@ body{
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     width: fit-content;
+    font-weight: 500;
   }
   .button2 button{
     background-color: transparent;
@@ -50,6 +54,7 @@ body{
     padding: 20px;
     margin-top: 20px;
     display: flex;
+    font-size: 18px;
   }
 
   .snap ul{
@@ -64,6 +69,7 @@ body{
     color: #333;
     font-size: 1.5rem;
     transition: color 0.3s;
+    font-weight: 500;
   }
 
   .snap ul li a{
@@ -80,7 +86,7 @@ body{
 
 .log{
     
-    color: black;
+    color:hsl(0, 0%, 8%);
     border: none;
     padding: 10px 20px;
     margin-top: 20px;
@@ -93,7 +99,7 @@ body{
 }
 
 .reg{
-    background: black;
+    background: hsl(0, 0%, 8%);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -103,4 +109,9 @@ body{
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     width: fit-content;
+    font-weight: 700;
+}
+
+.navbar:hover{
+  cursor:-webkit-grab;
 }
