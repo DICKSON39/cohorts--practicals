@@ -234,7 +234,3 @@ mybutton.onclick = function(){
 }
 
 */
-
-let name = 'dalton ndumia'
-
-console.log(name)
