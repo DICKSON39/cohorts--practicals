@@ -1,3 +1,64 @@
+/**
+ * Demonstrates various JavaScript concepts including variable declarations, data types, 
+ * string methods, array methods, and type coercion.
+ * 
+ * Variables:
+ * - `let` and `const` are used for variable declarations.
+ * - `let` allows reassignment, `const` does not.
+ * - Variable names must start with a letter, underscore (_), or dollar sign ($).
+ * 
+ * Data Types:
+ * - `typeof` operator is used to determine the type of a variable.
+ * - Examples include string, number, boolean, undefined, object, and BigInt.
+ * 
+ * String Methods:
+ * - `split()`: Splits a string into an array of substrings.
+ * - `substring()`: Extracts parts of a string and returns the extracted parts in a new string.
+ * - `substr()`: Extracts parts of a string, beginning at the specified position.
+ * - `trim()`: Removes whitespace from both sides of a string.
+ * - `toLowerCase()`: Converts a string to lowercase letters.
+ * - `toUpperCase()`: Converts a string to uppercase letters.
+ * - `charAt()`: Returns the character at a specified index in a string.
+ * - `indexOf()`: Locates a specified value in a string.
+ * - `includes()`: Checks if a string contains a specified value.
+ * - `concat()`: Joins two or more strings.
+ * - `replace()`: Replaces a specified value with another value in a string.
+ * - `repeat()`: Repeats a string a specified number of times.
+ * - `slice()`: Extracts a part of a string and returns a new string.
+ * - `search()`: Searches for a specified value in a string and returns the position of the match.
+ * 
+ * Array Methods:
+ * - `map()`: Creates a new array with the results of calling a provided function on every element in the calling array.
+ * - `join()`: Joins all elements of an array into a string.
+ * 
+ * Type Coercion:
+ * - Demonstrates how JavaScript handles type coercion with examples of string and number concatenation.
+ * 
+ * Examples:
+ * - Variable declarations: `let age = 25; const schoolName = "Greenwood High";`
+ * - String methods: `"Dickson".split(""); "Dickson".substring(0, 3);`
+ * - Array methods: `names.map((name) => name.charAt(0)); firstNames.join(".");`
+ * - Type coercion: `console.log(typeof ("5" + 3)); console.log("5" - 3);`
+ * 
+ * @example
+ * // Variable declarations
+ * let age = 25;
+ * const schoolName = "Greenwood High";
+ * 
+ * // String methods
+ * console.log("Dickson".split("")); // Output: [ 'D', 'i', 'c', 'k', 's', 'o', 'n' ]
+ * console.log("Dickson".substring(0, 3)); // Output: Dic
+ * 
+ * // Array methods
+ * let names = ["Dickson", "John", "Koech"];
+ * let firstNames = names.map((name) => name.charAt(0));
+ * console.log(firstNames); // Output: [ 'D', 'J', 'K' ]
+ * console.log(firstNames.join(".")); // Output: D.J.K
+ * 
+ * // Type coercion
+ * console.log(typeof ("5" + 3)); // Output: string
+ * console.log("5" - 3); // Output: 2
+ */
 let age = 25;
 const schoolName = "Greenwood High"
 let StudentList = []
@@ -258,4 +319,5 @@ console.log(typeof parseInt('56'))
 let  num = 56
 console.log(num.toString())
 console.log(typeof  num.toString())
+
 

@@ -62,4 +62,51 @@ console.log(countPalindromes('a'))
 console.log(countPalindromes('abc'))
 
 
+//question 7
+function longestCommonPrefix(strs) {
+    // If the input array is empty, return an empty string
+    if (!strs.length) return "";
+
+    // Initialize the prefix as the first string in the array
+    let prefix = strs[0];
+
+    // Loop through the remaining strings in the array
+    for (let i = 1; i < strs.length; i++) {
+        // While the current string does not start with the current prefix
+        while (!strs[i].startsWith(prefix)) {
+            // Remove the last character from the prefix
+            prefix = prefix.slice(0, -1);
+            // If the prefix becomes empty, return an empty string
+            if (!prefix) return "";
+        }
+    }
+    
+    // Return the longest common prefix
+    return prefix;
+}
+
+
+console.log(longestCommonPrefix(["flower", "flow", "flight"])); 
+console.log(longestCommonPrefix(["dog", "racecar", "car"]));    
+console.log(longestCommonPrefix(["'interspecies", 'interstellar', 'interstate'])); 
+console.log(longestCommonPrefix(["prefix", "prefixes", "preform"]));
+console.log(longestCommonPrefix(["apple", "banana", "cherry"]));     
+
+
+
+//Question 8
+// Convert the input string to lowercase to ensure case insensitivity
+s = s.toLowerCase();
+
+// Check if the string is equal to its reverse
+// Split the string into an array of characters, reverse the array, and join it back into a string
+// Compare the original string with the reversed string
+return s === s.split("").reverse().join("");
+
+console.log(isCaseSensitive('Aba'));
+console.log(isCaseSensitive('Racecar'));
+console.log(isCaseSensitive('Palindrome'));
+console.log(isCaseSensitive('Madam'))
+console.log(isCaseSensitive('Hello'))
+
 
