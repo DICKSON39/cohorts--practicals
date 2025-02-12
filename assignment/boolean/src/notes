@@ -1,0 +1,55 @@
+1. Password Authentication
+Why is it important to store passwords in a hashed format?
+Storing passwords in a hashed format ensures that even if an attacker gains access to the database, they cannot directly retrieve user passwords. Hashing is a one-way cryptographic process that converts a password into a fixed-length string, making it computationally infeasible to reverse.
+
+Security Advantage over Plain Text:
+
+Prevents attackers from easily accessing user credentials.
+Reduces the impact of a database breach.
+Enhances security when combined with techniques like salting (adding a random value before hashing).
+Ensures compliance with security standards (e.g., OWASP, GDPR).
+2. Multi-Factor Authentication (MFA)
+How does implementing MFA enhance security?
+MFA requires users to provide multiple forms of verification (e.g., password + one-time code), reducing the risk of unauthorized access. Even if a password is compromised, an attacker would need the additional factor (e.g., a mobile OTP or biometric) to gain access.
+
+Types of Attacks MFA Helps Prevent:
+
+Phishing attacks (stealing passwords via fake login pages).
+Credential stuffing (using leaked passwords from other breaches).
+Man-in-the-middle attacks (intercepting login credentials).
+Brute force attacks (trying multiple passwords).
+3. Balance Verification
+Why is it necessary to check the account balance before allowing a withdrawal?
+Ensuring the account has sufficient funds before processing a withdrawal prevents overdrafts, transaction failures, and financial fraud.
+
+Risks if Skipped:
+
+Overdrafts and debt accumulation.
+Bank reconciliation errors.
+Potential exploitation of system loopholes (e.g., negative balance fraud).
+Increased chargebacks and transaction disputes.
+4. Daily Transaction Limit
+Purpose of a Daily Transaction Limit:
+
+Restricts the amount of money that can be withdrawn per day, reducing exposure to unauthorized transactions.
+Protects users in case of stolen credentials or unauthorized access.
+Helps banks and financial institutions manage liquidity risks.
+How It Prevents Fraud/Excessive Withdrawals:
+
+Slows down fraudulent transactions, allowing time to detect and stop them.
+Limits financial damage in case of account compromise.
+Detects unusual spending behavior that might indicate fraud.
+5. Fraud Detection & Improvement
+How to Implement Fraud Detection for Abnormal Withdrawals:
+
+Track behavioral patterns: Monitor withdrawal frequency, amount, and location.
+Use machine learning: Analyze historical transaction data to identify anomalies.
+Monitor device and IP address: Flag suspicious login attempts from new devices or unusual locations.
+Set dynamic limits: Adjust withdrawal limits based on risk assessment.
+Additional Data to Track for Fraud Detection:
+
+Time and frequency of withdrawals.
+Geographical location of transactions.
+Device and IP address changes.
+Account login history.
+Previous fraudulent activity patterns.
