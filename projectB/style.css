@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+header input, header select, header button {
+    margin: 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+header input {
+    width: 200px;
+}
+
+header select {
+    background-color: white;
+}
+
+header button {
+    background-color: #f8c102;
+    cursor: pointer;
+}
+
+#book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.book-card {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.book-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.book-card p {
+    font-size: 14px;
+    color: #555;
+}
