@@ -1,4 +1,5 @@
 const user = {
+    
     id: "USER-123456",
     name: {
         first: "Alice",
@@ -46,6 +47,10 @@ const billingAddress = document.getElementById("billing-address");
 const transactionsInfo = document.getElementById("transactions");
 
 function injectData() {
+
+    //The function first destructures the user object to extract i, first, last and email
+    //It creates a new <div> element (userInfo)
+    //The extracted details are added using template literals(``)
     const { id, name: { first, last }, email } = user;
     //create a div (userinfo) with document.createElement
     const userInfo = document.createElement("div")

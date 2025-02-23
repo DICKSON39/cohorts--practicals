@@ -1,66 +1,262 @@
+/* Importing Modern Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Page Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     margin: 0;
     padding: 0;
+    color: #00ffcc;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px;
+/* Neon Pulse Animation */
+@keyframes pulse {
+    0% { background-color: #0f172a; }
+    50% { background-color: #1e293b; }
+    100% { background-color: #0f172a; }
 }
 
-header input, header select, header button {
-    margin: 5px;
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
+body {
+    animation: pulse 3s infinite alternate;
 }
 
-header input {
-    width: 200px;
-}
-
-header select {
-    background-color: white;
-}
-
-header button {
-    background-color: #f8c102;
-    cursor: pointer;
-}
-
-#book-container {
+/* Book List Container */
+#bookList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 50px;
     max-width: 1200px;
     margin: auto;
 }
 
-.book-card {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+/* Individual Book Card */
+.book {
+    background: rgba(25, 42, 86, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 255, 255, 0.2);
     text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    position: relative;
+    backdrop-filter: blur(15px);
 }
 
-.book-card img {
+/* Tilt Hover Effect */
+.book:hover {
+    transform: rotateX(5deg) rotateY(5deg) scale(1.05);
+    box-shadow: 0px 12px 30px rgba(0, 255, 255, 0.3);
+}
+
+/* Book Images */
+.book img {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
-.book-card h3 {
-    font-size: 18px;
-    margin: 10px 0;
+/* Book Title */
+.book h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #fff;
+    font-weight: bold;
 }
 
-.book-card p {
+/* Book Details */
+.book p {
     font-size: 14px;
-    color: #555;
+    color: #ccc;
 }
+
+/* Buy Button with Neon Glow */
+@keyframes glow {
+    0% { box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5); }
+    50% { box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8); }
+    100% { box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5); }
+}
+
+.book .buy-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff00ff, #ff6600);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 0, 128, 0.5);
+    animation: glow 2s infinite alternate;
+}
+
+.book .buy-btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #cc00cc, #cc5200);
+}
+
+/* Navbar Styling - Glassmorphism */
+.navbar {
+    width: 100%;
+    background: rgba(28, 31, 43, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar Logo */
+.navbar h1 {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Glassmorphism Filter Form */
+#filterForm {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.1);
+    margin: 30px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient Filter Buttons */
+.filter {
+    background: linear-gradient(135deg, #ff7e00, #ff4500);
+    color: white;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0px 6px 14px rgba(255, 102, 0, 0.4);
+}
+
+.filter:hover {
+    background: linear-gradient(135deg, #cc5200, #b32d00);
+    transform: scale(1.08);
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 420px;
+    height: 100%;
+    background: rgba(10, 20, 30, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: -3px 0 25px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Smooth Slide-In Effect */
+.cart-sidebar.open {
+    right: 0;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { right: -420px; opacity: 0; }
+    to { right: 0; opacity: 1; }
+}
+
+/* Checkout Button */
+.checkout-btn {
+    background: linear-gradient(135deg, #0f9b0f, #38ef7d);
+    color: white;
+    border: none;
+    padding: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 12px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(0, 255, 128, 0.4);
+}
+
+.checkout-btn:hover {
+    background: linear-gradient(135deg, #0a7f0a, #2cc36b);
+    transform: scale(1.08);
+}
+/* Cart Item Image - Resized & Balanced */
+.cart-item img {
+    width: 50px; /* Adjust size */
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
+    box-shadow: 0px 3px 8px rgba(255, 255, 255, 0.2);
+}
+/* Close Button Styling */
+.close-cart {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s ease-in-out, opacity 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* Hover Effect */
+.close-cart:hover {
+    transform: scale(1.15);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Ensure Cart Sidebar is Positioned Correctly */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -420px; /* Hidden by default */
+    width: 420px;
+    height: 100%;
+    background: rgba(20, 30, 48, 0.95);
+    box-shadow: -3px 0 25px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Ensure Sidebar Opens Correctly */
+.cart-sidebar.open {
+    right: 0;
+}
+
