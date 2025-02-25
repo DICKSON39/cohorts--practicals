@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven - Online Bookstore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🌟 Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="logo">
+           
+            <h1>Book Haven</h1>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li>
+                <select id="genre-filter">
+                    <option value="">All Genres</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="non-fiction">Non-Fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="romance">Romance</option>
+                </select>
+            </li>
+            <li>
+                <input type="text" id="search-bar" placeholder="Search books...">
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 📚 Book List -->
+    <div id="book-list">
+        <div class="spiner_loader">
+            <span class="loader"></span> 
+            <p>Loading  books <strong> . . .</strong></p>
+        </div>  
+    </div>
+
+    <!-- 🛒 Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <span class="close-cart" id="close-cart">&times;</span>
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="cart-total">Total: $0.00</p>
+        <button class="checkout-btn">Checkout</button>
+    </div>
+
+    <!-- 🛍️ Cart Icon (To Open Sidebar) -->
+    <button id="cart-button">🛒</button>
+
+    <script type="module" src="./src/product.ts"></script>
+    <script type="module" src="./dist/cart.js"></script>
+
+</body>
+</html>
