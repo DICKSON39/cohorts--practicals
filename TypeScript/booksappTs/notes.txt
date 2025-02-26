@@ -70,3 +70,21 @@ pnpm  install --save-dev vite
 1: npm run build to generate dist folder  
 2: server the app with vite 
 pnpm run serve
+
+
+A testing of code
+1. install jest with pnpm add jest
+2.installing dependencies
+pnpm add ts-jest typescript jest jest-environment-jsdom
+3.To config jestAfter all dependencies installed, we initialize 
+the jest config file with typescript supported:
+pnpm ts-jest config:init
+
+
+4.config package.json
+"test:jest": "jest --passWithNoTests --updateSnapshot --coverage"
+
+To run test
+pnpm run test:jest
+
+create a file for test e.g index.test.ts

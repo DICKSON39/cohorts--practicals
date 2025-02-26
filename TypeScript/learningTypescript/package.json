@@ -4,11 +4,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc --watch",
-    "dev:start": "nodemon src/index.ts",
+    "dev:start": "nodemon src/Union.ts",
     "start": "node dist/index.js",
     "stop": "nodemon src/typeAliases.ts",
     "build": "tsc",
-    "test": "vitest"
+    "test": "vitest",
+    "test:jest": "jest --passWithNoTests --updateSnapshot --coverage"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@total-typescript/exercise-cli": "^0.11.0",
     "@total-typescript/helpers": "^0.0.1",
+    "@types/jest": "^29.5.14",
     "cross-fetch": "^4.1.0",
     "nodemon": "^3.1.9",
     "npm-run-all": "^4.1.5",
@@ -26,5 +28,10 @@
     "typescript": "^5.7.3",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.6"
+  },
+  "dependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.2.6"
   }
 }

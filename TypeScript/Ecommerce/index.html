@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Haven - Online Bookstore</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -14,28 +15,18 @@
            
             <h1>Book Haven</h1>
         </div>
-
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li>
-                <select id="genre-filter">
-                    <option value="">All Genres</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="non-fiction">Non-Fiction</option>
-                    <option value="mystery">Mystery</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="sci-fi">Sci-Fi</option>
-                    <option value="romance">Romance</option>
-                </select>
-            </li>
-            <li>
-                <input type="text" id="search-bar" placeholder="Search books...">
-            </li>
-        </ul>
+       
+        
     </nav>
+    <form id="filterForm">
+        
+        <input type="text" id="yearFilter" placeholder="Filter by Year">
+        <input type="text" id="genreFilter" placeholder="Filter by Genre">
+        <input type="number" id="pagesFilter" placeholder="Max Pages">
+        <button id="filterBook" type="submit">Apply Filters</button>
+    </form>
 
-    <!-- 📚 Book List -->
+    
     <div id="book-list">
         <div class="spiner_loader">
             <span class="loader"></span> 
@@ -53,10 +44,11 @@
     </div>
 
     <!-- 🛍️ Cart Icon (To Open Sidebar) -->
-    <button id="cart-button">🛒</button>
+    <button id="cart-button"><i class="fas fa-shopping-bag"></i></button>
 
     <script type="module" src="./src/product.ts"></script>
     <script type="module" src="./dist/cart.js"></script>
+    <script type="module" src="./dist/filter.js"></script>
 
 </body>
 </html>

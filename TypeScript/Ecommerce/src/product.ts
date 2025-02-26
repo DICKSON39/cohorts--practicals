@@ -1,12 +1,13 @@
 import { addToCart } from "./cart";
 import { books } from "./index";
+import { filterBooks } from "./filter";
 
-function displayBooks() {
+function displayBooks(filteredBooks = books) {
   const bookList = document.getElementById("book-list");
 
   if (!bookList) return; // Ensure the element exists
 
-  bookList.innerHTML = books
+  bookList.innerHTML = filteredBooks
     .map(
       (book) => `
         <div class="book-card">
@@ -19,13 +20,13 @@ function displayBooks() {
             <p><strong>Genre:</strong> ${book.genre}</p>
             <p><strong>Pages:</strong> ${book.pages}</p>
             <p><strong>Published by:</strong> ${book.publisher}</p>
-            <button class="add-to-cart-btn" data-id="${book.id}">ADD TO CART </button>
+            <button class="add-to-cart-btn" data-id="${book.id}">ADD TO CART</button>
         </div>
     `
     )
     .join(""); // Convert array to string and insert into HTML
 
-  // Attach event listeners for Buy Now buttons
+  // Attach event listeners for Add to Cart buttons
   document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
     button.addEventListener("click", (event) => {
       const target = event.target as HTMLButtonElement; // Cast to HTMLButtonElement
@@ -38,7 +39,15 @@ function displayBooks() {
   });
 }
 
-// Ensure DOM is fully loaded before executing the function
+
+document.getElementById("filterForm")?.addEventListener("submit", (event) => {
+  event.preventDefault(); 
+
+  const filteredBooks = filterBooks(); 
+  displayBooks(filteredBooks); 
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(displayBooks, 3000);
+  setTimeout(displayBooks,2000); 
 });
