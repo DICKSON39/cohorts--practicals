@@ -1,0 +1,35 @@
+pnpm install --save-dev typescript nodemon
+$ npm init -y
+$ npx tsc --init
+
+add this to the ts config file // "target": "ESNext",
+    // "module": "NodeNext",
+    // "moduleResolution": "NodeNext",
+    // "outDir": "dist",
+    // "rootDir": "src",
+    // "strict": true,
+    // "esModuleInterop": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "skipLibCheck": true
+  // ,
+  // "include": ["src"],
+  // "exclude": ["node_modules"]
+
+  "scripts": {
+    "dev": "tsc --watch",
+    "dev:start": "nodemon src/Arraytuples.ts",
+    "start": "node dist/index.js",
+    "stop": "nodemon src/typeAliases.ts",
+    "build": "tsc",
+    "test": "vitest",
+    "test:jest": "jest --passWithNoTests --updateSnapshot --coverage"
+  }, this should be on the package
+
+pnpm install --save-dev typescript vitest nodemon prettier tsd vite-tsconfig-paths @total-typescript/exercise-cli @total-typescript/helpers cross-fetch npm-run-all
+runthe command
+
+to install ts-node 
+pnpm add -D ts-node typescript
+
+then pnpm run dev:start
+

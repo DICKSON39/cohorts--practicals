@@ -102,3 +102,41 @@ const {fname} = Palmer
 console.log (fname)
 const{goveInfo:{idNumber, location}} = Palmer
 console.log(idNumber + " " + location)
+
+
+const objs = [
+    {id:7, name: 'John'},
+    {id:10, name: "Grace"},
+    {id:12, name: "Jack"},
+    {id:3, name: "Julie"}
+]
+
+const sorted = objs.sort((a,b) => {
+    return a.id - b.id
+})
+
+console.log(sorted)
+
+/*[
+    { id: 3, name: 'Julie' },
+    { id: 7, name: 'John' },
+    { id: 10, name: 'Grace' },
+    { id: 12, name: 'Jack' }
+  ]*/
+
+    const names = ["james", "Anna", "Adam", "Colin", "Ruth"]
+
+    const sortedName = names.sort()
+
+    console.log(sortedName)
+
+    //[ 'Adam', 'Anna', 'Colin', 'Ruth', 'james' ]
+const nameReversed = sortedName.reverse()
+console.log(nameReversed)//[ 'james', 'Ruth', 'Colin', 'Anna', 'Adam' ]
+
+const str1 = "racecar";
+
+const isPalindrome = str => str === str.split('').reverse().join('')
+
+console.log(isPalindrome(str1))
+

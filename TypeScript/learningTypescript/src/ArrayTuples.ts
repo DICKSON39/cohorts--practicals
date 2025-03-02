@@ -52,3 +52,11 @@ type Recipe = {
   //   ];
   // };
   
+
+  export type syntax = {
+     syn1: string;
+     syn2: string;
+     syn3: number;
+  }
+
+  

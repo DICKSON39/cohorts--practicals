@@ -50,3 +50,25 @@ const pupil2 = {
 }
 
 person1(pupil)
+
+export interface InfoType {
+    name: string[]
+    age: Array<number>
+    areChamps: boolean
+  }
+
+  import { syntax } from "./ArrayTuples";
+  let SelectSyntax: Array<syntax> = [
+    {
+      syn1: "This is a string",
+      syn2: "This is also a string",
+      syn3: 123456,
+    },
+    {
+      syn1: "This is a second string",
+      syn2: "This is also a second string",
+      syn3: 12837474,
+    }
+  ]
+
+  console.log(SelectSyntax)
