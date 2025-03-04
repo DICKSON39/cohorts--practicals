@@ -33,3 +33,32 @@ async function fetchData() {
 //1: callbacks
 //2: promises
 //3: async/await
+
+
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+
+  async function getUsers() {
+    try {
+        let response = await fetch("https://jsonplaceholder.typicode.com/users");
+        let users = await response.json(); // Convert response to JSON
+        console.log(users);
+    } catch (error) {
+        console.log("Error fetching users:", error);
+    }
+}
+
+getUsers();
+
+
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Data fetched successfully');
+        }, 3000);
+    });
+}
+
