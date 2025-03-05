@@ -29,7 +29,7 @@ pnpm install --save-dev typescript vitest nodemon prettier tsd vite-tsconfig-pat
 runthe command
 
 to install ts-node 
-pnpm add -D ts-node typescript
+pnpm add -D typescript
 
 then pnpm run dev:start
 

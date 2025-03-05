@@ -1,11 +1,12 @@
 {
   "name": "1.settingup",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " node src/server.ts",
-    "start:dev": "nodemon src/server.ts"
+    "start": "node dist/Server.js",
+    "start:dev": "nodemon --exec ts-node src/Server.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
