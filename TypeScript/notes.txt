@@ -33,3 +33,4 @@ pnpm add -D typescript
 
 then pnpm run dev:start
 
+pnpm add ts-node typescript @types/node -D
