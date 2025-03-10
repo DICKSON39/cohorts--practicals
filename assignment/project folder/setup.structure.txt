@@ -1,0 +1,24 @@
+backend/
+│── src/
+│   ├── config/
+│   │   ├── db.ts
+│   ├── middleware/
+│   │   ├── authMiddleware.ts
+│   ├── routes/
+│   │   ├── authRoutes.ts
+│   │   ├── uploadRoutes.ts
+│   ├── controllers/
+│   │   ├── authController.ts
+│   │   ├── uploadController.ts
+│   ├── models/
+│   │   ├── userModel.ts
+│   ├── index.ts
+│── .env
+│── tsconfig.json
+│── package.json
+
+
+installation of dependencies and other libs
+pnpm init -y
+pnpm add express cors dotenv bcrypt jsonwebtoken express-validator pg pg-promise multer
+pnpm add -D typescript ts-node @types/node @types/express @types/bcrypt @types/jsonwebtoken @types/multer

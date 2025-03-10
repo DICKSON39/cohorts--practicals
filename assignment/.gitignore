@@ -1,0 +1,38 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+
+# Jest coverage reports
+coverage/
+
+# Jest cache
+jest-cache/
+jest/
+
+# Editor directories and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+notes.txt
+
+
+
