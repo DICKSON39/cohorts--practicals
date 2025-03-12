@@ -6,7 +6,7 @@
     "dev": "tsc --watch",
     "dev:start": "nodemon src/Union.ts",
     "start": "node dist/index.js",
-    "stop": "nodemon src/typeAliases.ts",
+    "stop": "nodemon src/Classes.ts",
     "build": "tsc",
     "test": "vitest",
     "test:jest": "jest --passWithNoTests --updateSnapshot --coverage"

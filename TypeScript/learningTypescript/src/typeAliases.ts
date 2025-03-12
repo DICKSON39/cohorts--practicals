@@ -84,3 +84,4 @@ const getSquarePerimeter = (Square:SquareType) => {
 
 console.log(getSquareArea(square1))// 400
 console.log(getSquarePerimeter(square1)) //80
+

@@ -25,47 +25,7 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-export const login = async (req: Request, res: Response) => {
-    try {
-      const { email, password } = req.body;
-  
-      // Input validation
-      if (!email || !password) {
-         res.status(400).json({ message: "Email and password are required" });
-         return
-      }
-  
-      // Fetch user from the database
-      const userQuery = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-      if (userQuery.rows.length === 0) {
-         res.status(404).json({ message: "User not found" });
-         return
-      }
-  
-      const user = userQuery.rows[0];
-  
-      // Compare passwords
-      
-  
-      // Generate JWT token
-      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET as string, {
-        expiresIn: "1h",
-      });
-  
-      // Return token and user data (excluding sensitive fields)
-      res.json({
-        token,
-        user: {
-          id: user.id,
-          username: user.username,
-          email: user.email,
-        },
-      });
-    } catch (error) {
-      console.error("Login error:", error);
-      res.status(500).json({ message: "Internal server error" });
-    }
-  }
+
 
 export const users = async (req: Request, res: Response) => {
   const { email, password } = req.params;
@@ -99,3 +59,49 @@ export const deleteUser = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const login = async (req: Request, res: Response) => {
+  try {
+    const { email, password } = req.body;
+
+    // Input validation
+    if (!email || !password) {
+       res.status(400).json({ message: "Email and password are required" });
+       return
+    }
+
+    // Fetch user from the database
+    const userQuery = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+    if (userQuery.rows.length === 0) {
+       res.status(404).json({ message: "User not found" });
+       return
+    }
+
+    const user = userQuery.rows[0];
+
+    // Compare passwords
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      res.status(401).json({ message: "Invalid credentials" });
+      return;
+    }
+
+    // Generate JWT token
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET as string, {
+      expiresIn: "1h",
+    });
+
+    // Return token and user data (excluding sensitive fields)
+    res.json({
+      token,
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    console.error("Login error:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}

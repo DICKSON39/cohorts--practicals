@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api"; // Replace with your actual API URL
+const API_BASE_URL = "http://localhost:9000/api"; // Replace with your actual API URL
 interface Post {
   post_id: number;
   caption: string;
@@ -157,7 +157,7 @@ viewPostsBtn.addEventListener("click", async () => {
   mainContent.innerHTML = "<h2>All Posts</h2><div id='postsContainer'>Loading posts...</div>";
 
   try {
-    const response = await fetch(`http://localhost:5000/api/posts`);
+    const response = await fetch(`http://localhost:9000/api/posts`);
     const data = await response.json();
 
     const postsContainer = document.getElementById("postsContainer")!;

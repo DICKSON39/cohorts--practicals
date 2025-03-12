@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const syntaxObjParam = (info) => {
 };
 const talkToAnimal = (animal) => {
@@ -34,3 +35,16 @@ const pupil2 = {
     name2: "John", age2: 23
 };
 person1(pupil);
+let SelectSyntax = [
+    {
+        syn1: "This is a string",
+        syn2: "This is also a string",
+        syn3: 123456,
+    },
+    {
+        syn1: "This is a second string",
+        syn2: "This is also a second string",
+        syn3: 12837474,
+    }
+];
+console.log(SelectSyntax);
