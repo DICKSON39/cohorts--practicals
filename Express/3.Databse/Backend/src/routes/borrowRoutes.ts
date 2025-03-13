@@ -6,7 +6,7 @@ import { authorize } from '../middleware/authorize';
 const router = express.Router();
 
 // 📌 Borrow a book (Only Borrowers)
-router.post('/', authenticate, authorize([3]), borrow);
+router.post('/borrow', authenticate, authorize([3]), borrow);
 
 // 📌 Return a borrowed book
 router.put('/:id/return', authenticate, authorize([3]), returnBorrowedBook);
