@@ -239,7 +239,7 @@ app.get("/user/books", async(req:Request, res:Response) => {
         return;
       }
   
-      const userChecking = await pool.query("SELECT id FROM users WHERE email=$1", [email]);
+      const userChecking = await pool.query("SELECT email FROM users WHERE email=$1", [email]);
       if (userChecking.rows.length === 0) {
         res.status(404).json({ message: "User not found" });
         return;
