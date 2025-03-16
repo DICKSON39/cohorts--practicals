@@ -10,17 +10,18 @@ interface Book {
     image?: string;
     price?: number;
     created_by: number;
+    total_copies: number
   }
   
   // Add a new book
   export const createBook = async (book: Book): Promise<void> => {
     const query = `
-      INSERT INTO books (title, author, genre, year, pages, publisher, description, image, price, created_by)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;
+      INSERT INTO books (title, author, genre, year, pages, publisher, description, price,total_copies,image, created_by)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9,$10,$11) RETURNING *;
     `;
     const values = [
       book.title, book.author, book.genre, book.year, book.pages, 
-      book.publisher, book.description, book.image, book.price, book.created_by
+      book.publisher, book.description,  book.price,book.total_copies,book.image, book.created_by
     ];
     const { rows } = await pool.query(query, values);
     return rows[0];

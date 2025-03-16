@@ -4,7 +4,7 @@ import { createBook, getAllBooks, getBookById, updateBook, deleteBook } from '..
 
 export const addBook = async (req: AuthRequest, res: Response) => {
   try {
-    const { title, author, genre, year, pages, publisher, description, image, price } = req.body;
+    const { title, author, genre, year, pages, publisher, description,price,total_copies,image } = req.body;
     const created_by = (req as any).user.user_id; // Get user ID from JWT
 
     if (!title || !author) {
@@ -12,7 +12,7 @@ export const addBook = async (req: AuthRequest, res: Response) => {
        return
     }
 
-    const newBook = await createBook({ title, author, genre, year, pages, publisher, description, image, price, created_by });
+    const newBook = await createBook({ title, author, genre, year, pages, publisher, description, price, total_copies,image,created_by });
     res.status(201).json({ message: 'Book added successfully', book: newBook });
     return
   } catch (error) {
