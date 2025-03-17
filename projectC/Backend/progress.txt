@@ -1,0 +1,141 @@
+ 1. Create the User_Role Table
+This table defines user roles (Admin, Librarian, Borrower).
+CREATE TABLE User_Role (
+    role_id SERIAL PRIMARY KEY,
+    role_name VARCHAR(50) UNIQUE NOT NULL
+);
+
+
+2. Create the Users Table
+This table stores user information, including hashed passwords and assigned roles.
+CREATE TABLE Users (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    role_id INT NOT NULL,
+    FOREIGN KEY (role_id) REFERENCES User_Role(role_id) ON DELETE CASCADE
+);
+
+
+3. Create the Books Table
+Stores book details, including total and available copies.
+CREATE TABLE Books (
+    book_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    genre VARCHAR(100),
+    year INT,
+    pages INT,
+    publisher VARCHAR(255),
+    description TEXT,
+    price DECIMAL(10, 2),
+    total_copies INT CHECK (total_copies >= 0) NOT NULL,
+    available_copies INT CHECK (available_copies >= 0) NOT NULL
+);
+
+4. Create the BookCopies Table
+Each book has multiple copies with different inventory numbers.
+CREATE TABLE BookCopies (
+    copy_id SERIAL PRIMARY KEY,
+    book_id INT NOT NULL,
+    inventory_number VARCHAR(50) UNIQUE NOT NULL,
+    condition VARCHAR(100),
+    status VARCHAR(20) CHECK (status IN ('Available', 'Borrowed')) DEFAULT 'Available',
+    location VARCHAR(255),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id) ON DELETE CASCADE
+);
+
+
+5. Create the Borrowers Table
+Tracks who borrowed which book copy and the borrowing status.
+CREATE TABLE Borrowers (
+    borrower_id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    copy_id INT UNIQUE NOT NULL,
+    librarian_id INT NOT NULL,
+    borrow_date DATE DEFAULT CURRENT_DATE,
+    return_date DATE,
+    status VARCHAR(20) CHECK (status IN ('Borrowed', 'Returned', 'Overdue')) DEFAULT 'Borrowed',
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (copy_id) REFERENCES BookCopies(copy_id) ON DELETE CASCADE,
+    FOREIGN KEY (librarian_id) REFERENCES Users(user_id) ON DELETE CASCADE,
+    CONSTRAINT unique_borrowed_book UNIQUE (user_id, copy_id, borrow_date)
+);
+
+copy_id UNIQUE ensures that one book copy is borrowed by only one person at a time
+
+
+6. Insert Default Roles (Admin, Librarian, Borrower)
+INSERT INTO User_Role (role_name) VALUES 
+('Admin'), ('Librarian'), ('Borrower');
+
+7.  Add Indexes for perfomance
+CREATE INDEX idx_user_email ON Users(email);
+CREATE INDEX idx_borrowers_user_copy_date ON Borrowers(user_id, copy_id, borrow_date);
+Improves query performance for common searches.
+
+Next Step:
+1️⃣ Backend logic for authentication & authorization,
+backend/
+│── src/
+│   ├── config/         # Database connection
+│   ├── controllers/    # Handles request logic
+│   ├── middlewares/    # Auth & role-based access control
+│   ├── models/         # Database models (TypeORM/Knex.js)
+│   ├── routes/         # API routes
+│   ├── services/       # Business logic
+│   ├── utils/          # Utility functions (e.g., password hashing)
+│   ├── index.ts        # Main entry point
+│── package.json
+│── tsconfig.json
+│── .env
+│── progress.TEXT
+
+
+2️⃣ Setting Up the Backend (Step-by-Step)
+Step 1: Install Dependencies
+Run the following command to install required packages:
+
+sh
+Copy
+Edit
+pnpm init -y
+pnpm add express pg dotenv jsonwebtoken bcrypt ts-node-dev cors helmet morgan
+pnpm add @types/express @types/node @types/jsonwebtoken @types/bcrypt @types/cors -D
+pg → PostgreSQL client
+jsonwebtoken → JWT for authentication
+bcrypt → Hash passwords
+cors → Allows frontend to access backend
+helmet → Security best practices
+morgan → Logs requests
+
+This is to show the role name:
+SELECT users.user_id, users.name, users.email, users.role_id, ur.role_name
+FROM users 
+JOIN user_role ur ON users.role_id = ur.role_id 
+WHERE users.user_id = 1;
+
+This function will insert the specified number of book copies when a new book is added.
+CREATE OR REPLACE FUNCTION add_book_copies()
+RETURNS TRIGGER AS $$
+DECLARE
+    i INT;
+BEGIN
+    -- Loop to insert the specified number of copies
+    FOR i IN 1..NEW.total_copies LOOP
+        INSERT INTO BookCopies (book_id, inventory_number, condition, status, location)
+        VALUES (NEW.book_id, 
+                CONCAT('B', NEW.book_id, '-', LPAD(i::TEXT, 3, '0')),  -- Generates inventory_number
+                'New', 
+                'Available', 
+                'Default Shelf');
+    END LOOP;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_add_book_copies
+AFTER INSERT ON Books
+FOR EACH ROW EXECUTE FUNCTION add_book_copies();
