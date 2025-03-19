@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+button {
+  width: 200px;
+}
+.container2 {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+button {
+  width: 100px;
+}
+
+div.parent {
+  border: 1px solid black;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+div.child {
+  border: 1px solid red;
+  margin: 10px;
+  padding: 5px;
+  width: 80px;
+  height: 60px;
+  box-sizing: border-box;
+}
+
+
+    </style>
+</head>
+<body onload="console.log('Welcome to my home page!');">
+
+    <div class="container">
+        <textarea class="story"></textarea>
+        <button id="set-text" type="button">Set text content</button>
+        <button id="clear-text" type="button">Clear text content</button>
+      </div>
+      <div class="container2">
+        <div class="parent">parent</div>
+        <button id="add-child" type="button">Add a child</button>
+        <button id="remove-child" type="button">Remove child</button>
+      </div>
+    <script src="index.js">
+
+    </script>
+</body>
+</html>
