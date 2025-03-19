@@ -1,1 +1,40 @@
 <p>home works!</p>
+
+
+<div *ngIf="list.length;else elseBlock">
+  <ul *ngFor="let name of list; let i=index">
+    <!-- <li [ngStyle]="{color: i % 2==0 ? 'red' : 'green' }">{{i + 1}}: {{name}}</li> -->
+     <li [ngClass]="[i % 2==0 ? 'red': 'blue', i% 2==0 ? 'orange': 'yellow']">{{name}}</li>
+  </ul>
+</div>
+
+<!-- <p *ngIf="showP;else elseBlock">{{myName}}</p> -->
+
+<input #myName >
+<button  (click)="onSave()">Click Me!</button>
+<!-- <input [(ngModel)]="value"/>
+<div>
+
+
+<p>{{value}}</p> -->
+
+<ng-template #elseBlock>
+    <p> Please add a name!</p>
+</ng-template>
+
+<div [ngSwitch]="day">
+    <p *ngSwitchCase="1">Its Monday</p>
+    <p *ngSwitchCase="2"> Its Tuesday</p>
+    <p *ngSwitchCase="3"> Its Wednesday</p>
+    <p *ngSwitchDefault>NO Match</p>
+
+</div>
+
+
+
+
+<!--Directives-->
+<!-- <div>
+
+</div> -->
+

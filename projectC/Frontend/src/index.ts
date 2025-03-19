@@ -90,6 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <h4>${book.title}</h4>
           <p>Author: ${book.author}</p>
           <p>Available: ${book.available_copies}</p>
+          <p>${book.description}</p>
+          <p>${book.publisher}</p>
+          <p>${book.year}</p>
+        
+
           <button onclick="borrowBook(${book.id})">Borrow</button>
         </div>
       `)
@@ -100,13 +105,18 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const title = (document.getElementById("book-title") as HTMLInputElement).value;
     const author = (document.getElementById("book-author") as HTMLInputElement).value;
+    const description = (document.getElementById("book-description") as HTMLInputElement).value
+    const publisher = (document.getElementById("book-publisher")as HTMLInputElement).value
+    const pages =(document.getElementById("book-pages")as HTMLInputElement).value
+    const year = (document.getElementById("book-year")as HTMLInputElement).value
+    const available_copies =(document.getElementById("book-available-copies")as HTMLInputElement).value
     const token = localStorage.getItem("token");
 
     try {
       const response = await fetch(`${API_URL}/api/v1/books`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ title, author }),
+        body: JSON.stringify({ title, author,year,publisher,pages,description,available_copies }),
       });
 
       if (!response.ok) throw new Error("Failed to add book");

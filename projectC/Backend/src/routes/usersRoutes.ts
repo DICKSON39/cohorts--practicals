@@ -1,13 +1,12 @@
+import express from "express";
+import { deleteUsers, getUsers } from "../controllers/usersController";
+import { protect } from "../middleWare/auth/protect";
 
-import express from 'express'
-import { getUsers } from '../controllers/usersController'
-import { protect } from '../middleWare/auth/protect'
+const router = express.Router();
 
-const router = express.Router()
-
-//public routes 
+//public routes
 //  - go the route of api.v1/users
-// - then check if they are logged in 
+// - then check if they are logged in
 // -  check if they are admin then
 // - get the users - controller
 // Modify userRoutes.ts to: ✅ Require authentication (protect) before accessing routes.
@@ -15,9 +14,7 @@ const router = express.Router()
 // ✅ Admins can manage users (CRUD).
 // ✅ Regular users (Organizers & Attendees) cannot modify users.
 // ✅ Public registration remains open (POST /users).
-router.get("/", protect, getUsers)
+router.get("/", protect, getUsers);
+router.delete("/", protect, deleteUsers);
 
-
-
-
-export default router
+export default router;

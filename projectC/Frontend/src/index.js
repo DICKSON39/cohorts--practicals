@@ -95,35 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
       `)
             .join("");
     });
-    window.borrowBook = (bookId) => __awaiter(void 0, void 0, void 0, function* () {
-        const token = localStorage.getItem("token");
-        if (!token)
-            return alert("Please log in");
-        try {
-            const response = yield fetch(`${API_URL}/api/v1/books/borrow/${bookId}`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-            });
-            const data = yield response.json();
-            if (!response.ok)
-                throw new Error(data.message || "Could not borrow book");
-            alert("Book borrowed successfully!");
-            fetchBooks();
-        }
-        catch (error) {
-            alert(error);
-        }
-    });
     addBookForm.addEventListener("submit", (event) => __awaiter(void 0, void 0, void 0, function* () {
         event.preventDefault();
         const title = document.getElementById("book-title").value;
         const author = document.getElementById("book-author").value;
+        const description = document.getElementById("book-description").value;
+        const publisher = document.getElementById("book-publisher").value;
+        const pages = document.getElementById("book-pages").value;
+        const year = document.getElementById("book-year").value;
+        const available_copies = document.getElementById("book-available-copies").value;
         const token = localStorage.getItem("token");
         try {
             const response = yield fetch(`${API_URL}/api/v1/books`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-                body: JSON.stringify({ title, author }),
+                body: JSON.stringify({ title, author, year, publisher, pages, description, available_copies }),
             });
             if (!response.ok)
                 throw new Error("Failed to add book");
