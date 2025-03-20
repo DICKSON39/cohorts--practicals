@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">RealEstate</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Find Your Dream Home</h1>
+    <p>Explore the best properties in your area.</p>
+    <a href="#properties" class="btn">View Properties</a>
+  </section>
+
+  <section id="properties" class="properties">
+    <h2>Featured Properties</h2>
+    <div class="property-list">
+      <div class="property-card">
+        <img src="images/first.jpg" alt="Property 1">
+        <h3>Modern Apartment</h3>
+        <p>$250,000</p>
+        <button onclick="viewDetails('property1')">View Details</button>
+      </div>
+      <div class="property-card">
+        <img src="images/Second.jpg" alt="Property 2">
+        <h3>Luxury Villa</h3>
+        <p>$500,000</p>
+        <button onclick="viewDetails('property2')">View Details</button>
+      </div>
+      <div class="property-card">
+        <img src="images/Third.jpg" alt="Property 3">
+        <h3>Cozy Cottage</h3>
+        <p>$150,000</p>
+        <button onclick="viewDetails('property3')">View Details</button>
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>We are a leading real estate agency dedicated to helping you find the perfect home. With years of experience, we provide the best service in the industry.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+ 
+
+  <footer>
+    <p>&copy; 2023 RealEstate. All rights reserved.</p>
+  </footer>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=your-client-id"></script>
+  <script src="./src/script.js"></script>
+</body>
+</html>

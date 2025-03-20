@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">CarWorld</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cars">Cars</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Welcome to CarWorld</h1>
+    <p>Find your dream car today!</p>
+    <a href="#cars" class="btn">Explore Cars</a>
+  </section>
+
+  <!-- Cars Section -->
+  <section id="cars" class="cars">
+    <h2>Featured Cars</h2>
+    <div class="car-list">
+      <div class="car-card">
+        <img src="image/Tesla Model S.jpeg" alt="Car 1">
+        <h3>Tesla Model S</h3>
+        <p>$79,990</p>
+        <button onclick="viewDetails('tesla-model-s')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Ford Mustang.avif" alt="Car 2">
+        <h3>Ford Mustang</h3>
+        <p>$42,090</p>
+        <button onclick="viewDetails('ford-mustang')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/BMW X5.avif" alt="Car 3">
+        <h3>BMW X5</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Landcruiser lc300.png" alt="Car 3">
+        <h3>Landcruiser</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Toyota 2025 Landcruiser.avif" alt="Car 3">
+        <h3>2025 Landcruiser</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Toyota Fortuner.webp" alt="Car 3">
+        <h3>Toyota Fortuner</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Toyota Tundra.avif" alt="Car 3">
+        <h3>Toyota Tundra</h3>
+        <p>$45,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Toyota Rav4.jpeg" alt="Car 3">
+        <h3>Toyota Rav4</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Toyota Auris.jpeg" alt="Car 3">
+        <h3>Toyota Auris</h3>
+        <p>$25,000</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Toyota Hilux.jpg" alt="Car 3">
+        <h3>Toyota Hilux</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Audi RS3.jpeg" alt="Car 3">
+        <h3>Audi RS3</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Audi q7.jpeg" alt="Car 3">
+        <h3>Audi q7</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Audi A8.jpeg" alt="Car 3">
+        <h3>Audi A8</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Audi A4.jpeg" alt="Car 3">
+        <h3>Audi A4</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Audi RS7.jpeg" alt="Car 3">
+        <h3>Audi RS7</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Mercedes-Benz AMG GT.jpeg" alt="Car 3">
+        <h3>Mercedes-Benz AMG GT</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Mercede-Benz GLC Coupe (C253).jpeg" alt="Car 3">
+        <h3>Mercede-Benz GLC Coupe</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Mercedes G-class.jpg" alt="Car 3">
+        <h3>Mercede-Benz G-Wagon</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Mercedes-Benz S-Class.jpeg" alt="Car 3">
+        <h3>BMW X5</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Porche Cayenna.avif" alt="Car 3">
+        <h3>Porche Cayenna</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Range Rover Evoque.jpeg" alt="Car 3">
+        <h3>Range Rover Evoque</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/Range Rover Vogue.avif" alt="Car 3">
+        <h3>Range Rover Vogue</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+      <div class="car-card">
+        <img src="image/range Rover Velar.avif" alt="Car 3">
+        <h3>Range Rover Velar</h3>
+        <p>$59,400</p>
+        <button onclick="viewDetails('bmw-x5')">View Details</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>We are a leading car dealership offering the best selection of new and used cars. Our mission is to help you find the perfect car at the best price.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 CarWorld. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
