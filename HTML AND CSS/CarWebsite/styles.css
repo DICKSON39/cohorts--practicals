@@ -45,6 +45,7 @@ nav ul li a:hover {
     color: #fff;
     padding: 120px 20px;
     text-align: center;
+    height: 100vh;
 }
 
 .hero h1 {
