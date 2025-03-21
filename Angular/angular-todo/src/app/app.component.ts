@@ -10,7 +10,7 @@ export interface TodoItem {
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule,CommonModule,NgFor,NgClass],
+  imports: [FormsModule,CommonModule,NgFor,NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
