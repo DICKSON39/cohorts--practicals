@@ -1,1 +1,37 @@
-<app-home></app-home>
+<app-child1 (emitNameEvent)="addName($event)"></app-child1>
+
+<app-child2 [names]="listName"></app-child2>
+
+
+<!-- <button (click)="doSomething(event)"></button> -->
+
+<!--The uppercase pipe-->
+<p>{{name |uppercase }} </p>
+
+
+<!--The decimal pipe-->
+<p>{{num1 | number : "1.2-2"}}</p>
+
+<!--The currency pipe-->
+<p>{{num1|currency: 'CAD' }}</p>
+
+<!--The Async Method-->
+<p>{{promise |async}}</p>
+
+<!--The percent method-->
+<p>{{percent |percent}}</p>
+
+<!--Date method-->
+<p>{{today | date:  'fullDate'}}</p>
+<p>{{date | date: "MMMM d, y" }}</p>
+
+<!--Slice method-->
+<p>{{'Angular' | slice:0:3 }}</p> <!--Ang-->
+
+<!--The JSON PIPE-->
+
+<p>{{ {name: 'Pauline', age: 24}  |json}}</p><!--{ "name": "Pauline", "age": 24 }-->
+
+
+
+
