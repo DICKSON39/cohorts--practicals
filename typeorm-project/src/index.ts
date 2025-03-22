@@ -4,6 +4,7 @@ import { AppDataSource } from "./data-source";
 import cors from 'cors'
 import * as dotenv from 'dotenv'
 import authRoutes from './routes/auth'
+import eventRoutes from './routes/event'
 
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.json())
 
 
  app.use("/auth", authRoutes)
+ app.use("/events",eventRoutes)
   
 
 
