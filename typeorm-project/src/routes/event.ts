@@ -28,3 +28,22 @@ router.get("/", async (req, res) => {
 });
 
 export default router;
+
+//Delete Event
+router.delete("/", async(req,res) => {
+  const {title} = req.body;
+
+  if(!title) {
+    res.status(400).json({message: "All fields required"})
+    return
+  }
+
+  try {
+    const newDeletedEvent = await eventRepository.delete({title});
+    res.status(201).json({message: "Event deleted successfully", newDeletedEvent});
+    return
+  } catch (error) {
+    res.status(500).json({message: "Internal server error"})
+  }
+})
+

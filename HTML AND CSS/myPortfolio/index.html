@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PortFolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to my PortFolio</h1>
+        <p>I'm a Fullstack web Developer</p>
+        <img src="./images/IMG20240817081042_resized.jpg">
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I specialize in both frontend and backend development and also has majored in typescript and databases operations e.g PostgresSql </p>
+
+    </section>
+    
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-list">
+            <div class="project">
+                <h3>Library System</h3>
+                <p>A system For Managing Books</p>
+                <a href="#">View My Projects</a>
+
+            </div>
+            <div class="project">
+                <h3>Admin Dashboard</h3>
+                <p>A Dashboard for school administration</p>
+                <a href="#">View My Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email"placeholder="email" required>
+            <textarea id="message" placeholder="Your message" required></textarea>
+            <button type="submit">Send</button>
+
+        </form>
+    </section>
+    <footer>@ 2025 My PortFolio</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

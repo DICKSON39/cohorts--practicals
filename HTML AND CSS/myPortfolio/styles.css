@@ -1,0 +1,103 @@
+body {
+    font-family: Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+
+}
+
+header{
+    background: #333;
+    padding:15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding:10px 15px;
+}
+
+section{
+    padding: 60px 20px;
+    min-height: 100vh;
+    text-align: center;
+
+}
+#home {
+    background: #f4f4f4;
+    padding: 60px 20px;
+    min-height: 100vh;
+    text-align: center;
+
+}
+
+#projects {
+    background: #ddd;
+    padding: 60px 20px;
+    min-height: 100vh;
+    text-align: center;
+
+
+}
+
+.project-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+input, textarea {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+
+}
+
+button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border:none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+}
+
+img {
+    border-radius: 50px;
+    object-fit: cover;
+    position: relative;
+
+}

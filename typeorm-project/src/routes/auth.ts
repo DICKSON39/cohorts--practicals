@@ -36,4 +36,6 @@ router.post("/logout", (req, res) => {
   res.clearCookie("token").json({ message: "Logged out" });
 });
 
+
+
 export default router;
