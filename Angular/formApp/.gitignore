@@ -1,43 +1,3 @@
-# Node modules
-node_modules/
-
-# Build output
-dist/
-
-
-# TypeScript build info
-*.tsbuildinfo
-
-# Environment files
-.env
-.env.*
-
-# Jest coverage reports
-coverage/
-
-# Jest cache
-jest-cache/
-jest/
-
-# Editor directories and OS files
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# Log files
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-.DS_Store
-
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
@@ -80,10 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-notes.txt
-
-
-
-C/
-Docker/
