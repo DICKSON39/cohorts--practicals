@@ -1,0 +1,13 @@
+<!-- <p>{{todoResource}}</p> -->
+
+<ul>
+    <li *ngFor="let item of todos; trackBy: trackItem">
+        {{item.name}}
+    </li>
+</ul>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">The color is red</div>
+    <div *ngSwitchCase="'blue'">The color is blue</div>
+    <div *ngSwitchDefault>The color is not red or blue</div>
+</div>

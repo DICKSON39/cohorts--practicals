@@ -1,0 +1,20 @@
+<p>product works!</p>
+
+<a routerLink="/contact"> Take me to Contact (Absolute path)</a>
+<br>
+<a routerLink="contact"> Take me to Contact (relative path)</a>
+<!--Depends on which component you are-->
+
+
+<br/>
+<a routerLink="1">take me to product 1</a> 
+<br>
+<button routerLink="1"> Take Me</button>
+<br/>
+
+<a [routerLink]="['/product',324]">Take to product 12</a>
+<br>
+
+
+<button (click)="navigateToDashboard()">Contact</button>
+

@@ -1,0 +1,23 @@
+name: Events Demo 1
+on: workflow_dispatch
+
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Test Code
+        run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Code
+        run: npm run build
+      - name: Deploy Code
+        run: echo "Deploying code..."
+      

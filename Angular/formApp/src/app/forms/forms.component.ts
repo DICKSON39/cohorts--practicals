@@ -6,7 +6,7 @@ import { UniqueNameValidator } from '../unique-name.validator';
 
 @Component({
   selector: 'app-forms',
-  imports: [ReactiveFormsModule,NgFor,NgIf],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './forms.component.html',
   styleUrl: './forms.component.css'
 })

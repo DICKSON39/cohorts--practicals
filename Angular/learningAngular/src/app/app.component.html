@@ -1,37 +1,104 @@
-<app-child1 (emitNameEvent)="addName($event)"></app-child1>
-
-<app-child2 [names]="listName"></app-child2>
-
+<!-- <app-child1 (emitNameEvent)="addName($event)"></app-child1> -->
+<app-child1> </app-child1>
+<app-child2>
+  <P>Hello there</P>
+</app-child2>
 
 <!-- <button (click)="doSomething(event)"></button> -->
 
 <!--The uppercase pipe-->
-<p>{{name |uppercase }} </p>
-
+<p>{{ name | uppercase }}</p>
 
 <!--The decimal pipe-->
-<p>{{num1 | number : "1.2-2"}}</p>
+<p>{{ num1 | number : "1.2-2" }}</p>
 
 <!--The currency pipe-->
-<p>{{num1|currency: 'CAD' }}</p>
+<p>{{ num1 | currency : "CAD" }}</p>
 
 <!--The Async Method-->
-<p>{{promise |async}}</p>
+<p>{{ promise | async }}</p>
 
 <!--The percent method-->
-<p>{{percent |percent}}</p>
+<p>{{ percent | percent }}</p>
 
 <!--Date method-->
-<p>{{today | date:  'fullDate'}}</p>
-<p>{{date | date: "MMMM d, y" }}</p>
+<p>{{ today | date : "fullDate" }}</p>
+<p>{{ date | date : "MMMM d, y" }}</p>
 
 <!--Slice method-->
-<p>{{'Angular' | slice:0:3 }}</p> <!--Ang-->
+<p>{{ "Angular" | slice : 0 : 3 }}</p>
+<!--Ang-->
 
 <!--The JSON PIPE-->
 
-<p>{{ {name: 'Pauline', age: 24}  |json}}</p><!--{ "name": "Pauline", "age": 24 }-->
+<p>{{ { name: "Pauline", age: 24 } | json }}</p>
+<!--{ "name": "Pauline", "age": 24 }-->
 
 
+<form  #form = "ngForm" (ngSubmit)="onSubmit(form)"> 
+    <p>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firtname" name="firstname" required ngModel #firstName="ngModel">
+        <br>
+        <span *ngIf="!firstName?.valid && firstName?.touched">Name is required</span>
+    </p>
 
+    <p>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" minlength="8" name="lastname" pattern="[-/|-/] -$" required ngModel>
+        
+    </p>
 
+    
+        <Label for="email"> Email</Label>
+        <input type="email" id="email" name="email" required email ngModel  #email="ngModel">
+        <br>
+        <div *ngIf="!email.valid && email.touched && email.errors">
+            <span *ngIf="email.errors?.['required']"> Email is required!</span>
+            <br>
+            <span  *ngIf="email.errors?.['email']">Email is Invalid</span>
+         
+        </div>
+    
+
+    <p>
+        <label for="gender">Gender</label>
+        <input type="radio" value="male" id="gender" name="gender" required ngModel> male
+        <input type="radio" value="female" id="gender" name="gender" required ngModel> female
+    </p>
+
+    <p>
+        <label for="isMarried">Married</label>
+        <input type="checkbox" id="isMarried" name="isMarried" required ngModel>
+    </p>
+
+    <p>
+        <label for="country">Country</label>
+        <select name="country" id="country" ngModel>
+            <option selected="" value="">Kenya</option>
+            <option [ngValue]="c.id" *ngFor="let c of countryList">
+                {{c.name}}
+            </option>
+        </select>
+    </p>
+
+    <div ngModelGroup="address">
+        <p>
+            <label for="city">City</label>
+            <input type="text" name="city"required ngModel>
+        </p>
+
+        <p>
+            <label for="street">Address</label>
+            <input type="text" name="street" required ngModel>
+        </p>
+    </div>
+   <!--[disabled]="!form.valid"-->
+    <button type="submit" >Submit</button>
+
+</form>
+
+<button (click)="upDateForm()">Update Form</button>
+
+<app-routing></app-routing>
+<app-apis></app-apis>

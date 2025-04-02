@@ -13,6 +13,8 @@ export class UserEvents {
   
     @Column()
     date: string;
+
+    
   
     @ManyToOne(() => User, (user) => user.events, { onDelete: "CASCADE" })
     user: User; // An event is linked to a specific user

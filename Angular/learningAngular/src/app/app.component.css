@@ -1,0 +1,11 @@
+ input .ng-touched select .ng-valid {
+    border-left: 5px solid green;
+}
+
+    .ng-invalid {
+        border-left: 5px solid red;
+    }
+
+    span {
+        color: red;
+    }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { FormsComponent } from './forms/forms.component';
 
@@ -10,5 +10,14 @@ import { FormsComponent } from './forms/forms.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
- 
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl('')
+  });
+
+  onSubmit() {
+    console.log(this.profileForm.value)
+  }
+
+  
 }

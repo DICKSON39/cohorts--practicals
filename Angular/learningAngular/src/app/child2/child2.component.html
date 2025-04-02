@@ -1,7 +1,13 @@
 
 
 <div *ngIf="names.length">
-    <ul *ngFor="let name of names">
-        <li>{{name}}</li>
+    <ul *ngFor="let name of names; let i =index">
+        <div>
+            <li>{{name}}</li>
+           <button (click)="onDelete(i)">X</button>
+        </div>
+        
     </ul>
 </div>
+
+<ng-content></ng-content>
